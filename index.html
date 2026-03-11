@@ -9,71 +9,88 @@
 <style>
 
 body{
-font-family:Arial;
+font-family:Segoe UI,Arial;
 background:#0d1117;
 color:white;
-text-align:center;
 margin:0;
+text-align:center;
 }
 
 /* banner */
 
 .banner{
 width:100%;
-max-height:300px;
+max-height:260px;
 object-fit:cover;
+}
+
+/* container */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
 }
 
 /* logo */
 
 .logo{
-width:120px;
-margin-top:20px;
+width:80px;
+margin-top:10px;
 }
 
 /* title */
 
 h1{
-font-size:48px;
-margin-top:10px;
+font-size:44px;
+margin:10px 0;
+}
+
+.subtitle{
+opacity:0.8;
+font-size:18px;
 }
 
 /* button */
 
-button{
+.download{
+display:inline-block;
+margin-top:25px;
 background:#2ea043;
-color:white;
-padding:16px 32px;
-font-size:22px;
-border:none;
+padding:16px 40px;
+font-size:20px;
 border-radius:8px;
-cursor:pointer;
-margin-top:20px;
+color:white;
+text-decoration:none;
 }
 
-button:hover{
+.download:hover{
 background:#3fb950;
 }
 
 /* screenshot */
 
 .screenshot{
-width:90%;
-max-width:1000px;
 margin-top:40px;
+width:100%;
 border-radius:8px;
-box-shadow:0 0 20px rgba(0,0,0,0.6);
+box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
 
+/* features */
+
 .features{
-margin-top:30px;
+margin-top:25px;
 font-size:18px;
+opacity:0.85;
 }
+
+/* footer */
 
 footer{
 margin-top:40px;
-opacity:0.7;
 font-size:14px;
+opacity:0.6;
 }
 
 </style>
@@ -82,23 +99,21 @@ font-size:14px;
 
 <body>
 
-<!-- banner -->
-
 <img src="banner.png" class="banner">
 
-<!-- logo -->
+<div class="container">
 
 <img src="logo_QA.ico" class="logo">
 
 <h1>QA Toolkit</h1>
 
-<p>Windows System Optimization Tool written in PowerShell</p>
+<div class="subtitle">
+Windows System Optimization Tool written in PowerShell
+</div>
 
-<a href="https://github.com/pqc-hub/QA-Toolkit/releases">
-<button>Download Latest Version</button>
+<a class="download" href="https://github.com/pqc-hub/QA-Toolkit/releases">
+Download Latest Version
 </a>
-
-<!-- screenshot -->
 
 <img src="manhinh.png" class="screenshot">
 
@@ -109,6 +124,8 @@ System Audit • Temp Cleanup • Startup Manager • HTML Report
 <footer>
 QA Toolkit © 2026
 </footer>
+
+</div>
 
 </body>
 </html>
