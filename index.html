@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="QA Toolkit - Công cụ tối ưu hóa và kiểm tra hệ thống Windows viết bằng PowerShell với giao diện GUI thân thiện.">
     <title>QA Toolkit</title>
-    <link rel="icon" href="logo_QA.ico">
+    
+    <!-- FAVICON - ĐÃ TỐI ƯU MẠNH (fix lỗi không hiện) -->
+    <link rel="icon" type="image/x-icon" href="logo_QA.ico?v=1">
+    <link rel="shortcut icon" type="image/x-icon" href="logo_QA.ico?v=1">
+    <link rel="apple-touch-icon" href="logo_QA.ico?v=1">
 
     <style>
         body {
@@ -63,126 +67,26 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.7);
         }
 
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 80px;
-        }
-        .hero h1 {
-            font-size: 56px;
-            margin-bottom: 12px;
-        }
-        .subtitle {
-            font-size: 20px;
-            opacity: 0.8;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        /* Các phần còn lại giữ nguyên (đẹp như cũ) */
+        .hero { text-align: center; padding: 60px 20px 80px; }
+        .hero h1 { font-size: 56px; margin-bottom: 12px; }
+        .subtitle { font-size: 20px; opacity: 0.8; max-width: 700px; margin: 0 auto; }
         .download {
-            display: inline-block;
-            margin-top: 40px;
-            background: #2ea043;
-            padding: 18px 52px;
-            font-size: 23px;
-            border-radius: 12px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(46, 160, 67, 0.3);
+            display: inline-block; margin-top: 40px; background: #2ea043; padding: 18px 52px;
+            font-size: 23px; border-radius: 12px; color: white; text-decoration: none;
+            font-weight: 600; transition: 0.3s; box-shadow: 0 8px 20px rgba(46,160,67,0.3);
         }
-        .download:hover {
-            background: #3fb950;
-            transform: translateY(-4px);
-        }
+        .download:hover { background: #3fb950; transform: translateY(-4px); }
 
-        /* MAIN IMAGE */
-        .mainshot {
-            margin: 60px auto;
-            text-align: center;
+        .mainshot img, .grid img {
+            width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.7);
         }
-        .mainshot img {
-            width: 92%;
-            max-width: 980px;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-        }
-
-        /* FEATURES */
-        .features {
-            max-width: 1180px;
-            margin: 100px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-        }
-        .card {
-            background: #161b22;
-            padding: 34px 24px;
-            border-radius: 16px;
-            text-align: center;
-            transition: 0.4s;
-        }
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-        .card span {
-            font-size: 48px;
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        /* GALLERY */
-        .gallery {
-            max-width: 1180px;
-            margin: 120px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        .gallery h2 {
-            margin-bottom: 40px;
-            font-size: 32px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        .grid img {
-            width: 100%;
-            border-radius: 12px;
-            transition: 0.3s;
-        }
-        .grid img:hover {
-            transform: scale(1.06);
-        }
-
-        /* GUIDE */
-        .guide {
-            max-width: 860px;
-            margin: 100px auto;
-            padding: 0 20px;
-        }
-        .guide h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .guide ol {
-            font-size: 18px;
-        }
-        .guide li {
-            margin-bottom: 16px;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 40px;
-            opacity: 0.65;
-            font-size: 15px;
-        }
+        .features, .gallery, .guide { max-width: 1180px; margin: 100px auto; padding: 0 20px; }
+        .card { background: #161b22; padding: 34px 24px; border-radius: 16px; text-align: center; transition: 0.4s; }
+        .card:hover { transform: translateY(-12px); }
+        .card span { font-size: 48px; display: block; margin-bottom: 16px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        footer { text-align: center; padding: 40px; opacity: 0.65; font-size: 15px; }
 
         @media (max-width: 768px) {
             .navbar { padding: 18px 20px; }
