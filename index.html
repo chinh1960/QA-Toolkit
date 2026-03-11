@@ -8,14 +8,9 @@
 
 <link rel="icon" href="logo_QA.ico">
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-body{
-font-family:Segoe UI,Arial;
-margin:0;
-background:#f4f6f9;
-color:#333;
-}
+<style>
 
 .hero{
 text-align:center;
@@ -57,6 +52,23 @@ text-decoration:none;
 background:#005ea6;
 }
 
+.nav{
+text-align:center;
+background:#222;
+padding:10px;
+}
+
+.nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.nav a:hover{
+text-decoration:underline;
+}
+
 .container{
 max-width:1200px;
 margin:auto;
@@ -79,22 +91,6 @@ box-shadow:0 4px 14px rgba(0,0,0,0.1);
 
 .card h3{
 margin-top:0;
-}
-
-.demo{
-margin-top:60px;
-text-align:center;
-}
-
-.slideshow{
-position:relative;
-max-width:850px;
-margin:auto;
-}
-
-.slideshow img{
-width:100%;
-border-radius:8px;
 }
 
 .gallery{
@@ -140,27 +136,23 @@ padding:25px;
 color:#777;
 }
 
-@media(max-width:900px){
-
-.gallery{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:600px){
-
-.gallery{
-grid-template-columns:1fr;
-}
-
-}
-
 </style>
 
 </head>
 
 <body>
+
+<div class="nav">
+
+<a href="index.html">Home</a>
+
+<a href="docs.html">Documentation</a>
+
+<a href="report-template.html">Report Template</a>
+
+<a href="https://github.com/PQC-hub/QA-Toolkit/releases">Download</a>
+
+</div>
 
 <div class="hero">
 
@@ -221,18 +213,6 @@ Download Latest Version
 
 </div>
 
-<div class="demo">
-
-<h2>Application Demo</h2>
-
-<div class="slideshow">
-
-<img id="slide" src="manhinh1.png">
-
-</div>
-
-</div>
-
 <h2>Screenshots</h2>
 
 <div class="gallery">
@@ -279,27 +259,6 @@ QA Toolkit – PowerShell Windows Optimization Tool
 </footer>
 
 <script>
-
-let images=[
-"manhinh1.png",
-"manhinh2.png",
-"manhinh3.png",
-"manhinh4.png",
-"manhinh5.png",
-"manhinh6.png"
-]
-
-let i=0
-
-setInterval(function(){
-
-i++
-
-if(i>=images.length)i=0
-
-document.getElementById("slide").src=images[i]
-
-},3000)
 
 function openImg(img){
 
