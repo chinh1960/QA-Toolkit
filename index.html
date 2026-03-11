@@ -13,55 +13,77 @@ font-family:Segoe UI,Arial;
 background:#0d1117;
 color:white;
 margin:0;
-text-align:center;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:15px;
+background:#161b22;
+font-size:18px;
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+opacity:0.8;
+}
+
+.navbar a:hover{
+opacity:1;
 }
 
 /* banner */
 
 .banner{
 width:100%;
-max-height:260px;
+height:240px;
 object-fit:cover;
 }
 
 /* container */
 
 .container{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 padding:40px 20px;
+text-align:center;
 }
 
 /* logo */
 
 .logo{
-width:80px;
-margin-top:10px;
+width:70px;
 }
 
 /* title */
 
 h1{
 font-size:44px;
-margin:10px 0;
+margin:15px 0 5px 0;
 }
 
 .subtitle{
 opacity:0.8;
 font-size:18px;
+margin-bottom:25px;
 }
 
-/* button */
+/* download button */
 
 .download{
 display:inline-block;
-margin-top:25px;
 background:#2ea043;
 padding:16px 40px;
-font-size:20px;
+font-size:22px;
 border-radius:8px;
 color:white;
 text-decoration:none;
+font-weight:600;
+margin-top:15px;
 }
 
 .download:hover{
@@ -71,33 +93,63 @@ background:#3fb950;
 /* screenshot */
 
 .screenshot{
-margin-top:40px;
 width:100%;
+max-width:950px;
 border-radius:8px;
+margin-top:40px;
 box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
 
-/* features */
+/* FEATURES */
 
 .features{
-margin-top:25px;
+margin-top:50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+}
+
+.feature{
+background:#161b22;
+padding:25px;
+border-radius:10px;
+}
+
+.feature-icon{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.feature-title{
 font-size:18px;
-opacity:0.85;
+font-weight:600;
+margin-bottom:6px;
+}
+
+.feature-text{
+font-size:14px;
+opacity:0.8;
 }
 
 /* footer */
 
 footer{
-margin-top:40px;
-font-size:14px;
+margin-top:60px;
+padding:20px;
 opacity:0.6;
+font-size:14px;
 }
 
 </style>
-
 </head>
 
 <body>
+
+<div class="navbar">
+<a href="#">Home</a>
+<a href="https://github.com/pqc-hub/QA-Toolkit">GitHub</a>
+<a href="https://github.com/pqc-hub/QA-Toolkit/releases">Download</a>
+</div>
 
 <img src="banner.png" class="banner">
 
@@ -112,20 +164,44 @@ Windows System Optimization Tool written in PowerShell
 </div>
 
 <a class="download" href="https://github.com/pqc-hub/QA-Toolkit/releases">
-Download Latest Version
+⬇ Download Latest Version
 </a>
 
 <img src="manhinh.png" class="screenshot">
 
 <div class="features">
-System Audit • Temp Cleanup • Startup Manager • HTML Report
+
+<div class="feature">
+<div class="feature-icon">🖥</div>
+<div class="feature-title">System Audit</div>
+<div class="feature-text">Analyze system hardware and performance</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🧹</div>
+<div class="feature-title">Temp Cleanup</div>
+<div class="feature-text">Remove unnecessary temporary files</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🚀</div>
+<div class="feature-title">Startup Manager</div>
+<div class="feature-text">Control programs that run at startup</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">📄</div>
+<div class="feature-title">HTML Report</div>
+<div class="feature-text">Generate system analysis reports</div>
+</div>
+
+</div>
+
 </div>
 
 <footer>
 QA Toolkit © 2026
 </footer>
-
-</div>
 
 </body>
 </html>
