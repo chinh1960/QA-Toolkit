@@ -28,7 +28,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 background:#ffffff;
-padding:12px 30px;
+padding:14px 30px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
@@ -76,6 +76,11 @@ font-size:42px;
 margin-top:10px;
 }
 
+.stats{
+margin-top:15px;
+font-size:18px;
+}
+
 .download-btn{
 background:#0078D4;
 color:white;
@@ -114,6 +119,17 @@ box-shadow:0 3px 10px rgba(0,0,0,0.1);
 background:#2a2a2a;
 }
 
+.slideshow{
+text-align:center;
+margin-top:40px;
+}
+
+.slideshow img{
+width:800px;
+max-width:100%;
+border-radius:8px;
+}
+
 .gallery{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -132,17 +148,6 @@ transition:0.2s;
 transform:scale(1.03);
 }
 
-.slideshow{
-text-align:center;
-margin-top:40px;
-}
-
-.slideshow img{
-width:800px;
-max-width:100%;
-border-radius:8px;
-}
-
 .lightbox{
 display:none;
 position:fixed;
@@ -158,11 +163,6 @@ justify-content:center;
 .lightbox img{
 max-width:90%;
 max-height:90%;
-}
-
-.counter{
-font-size:20px;
-margin-top:15px;
 }
 
 footer{
@@ -207,7 +207,15 @@ Dark Mode
 
 <h1>QA Toolkit</h1>
 
-<p>Công cụ tối ưu hệ thống Windows</p>
+<p>Công cụ tối ưu hệ thống Windows bằng PowerShell</p>
+
+<div class="stats">
+
+⭐ Stars: <span id="stars">...</span> |
+⬇ Downloads: <span id="downloads">...</span> |
+📦 Version: <span id="version">...</span>
+
+</div>
 
 <a class="download-btn"
 href="https://github.com/PQC-hub/QA-Toolkit/releases">
@@ -215,12 +223,6 @@ href="https://github.com/PQC-hub/QA-Toolkit/releases">
 Tải phiên bản mới nhất
 
 </a>
-
-<div class="counter">
-
-Lượt tải: <span id="downloadCount">0</span>
-
-</div>
 
 </div>
 
@@ -286,9 +288,11 @@ Lượt tải: <span id="downloadCount">0</span>
 <h2>Yêu cầu hệ thống</h2>
 
 <ul>
+
 <li>Windows 10 / Windows 11</li>
-<li>PowerShell 5.1+</li>
+<li>PowerShell 5.1 trở lên</li>
 <li>Quyền Administrator</li>
+
 </ul>
 
 </div>
@@ -301,7 +305,7 @@ Lượt tải: <span id="downloadCount">0</span>
 
 <footer>
 
-QA Toolkit – Công cụ tối ưu Windows bằng PowerShell
+QA Toolkit – Công cụ tối ưu Windows
 
 </footer>
 
@@ -327,9 +331,7 @@ let i=0
 setInterval(function(){
 
 i++
-
 if(i>=images.length)i=0
-
 document.getElementById("slide").src=images[i]
 
 },3000)
@@ -347,9 +349,24 @@ document.getElementById("lightbox").style.display="none"
 
 }
 
-let downloads=1250
+/* GitHub API */
 
-document.getElementById("downloadCount").innerText=downloads
+fetch("https://api.github.com/repos/PQC-hub/QA-Toolkit")
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("stars").innerText=data.stargazers_count
+})
+
+fetch("https://api.github.com/repos/PQC-hub/QA-Toolkit/releases/latest")
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("version").innerText=data.tag_name
+let downloads=0
+data.assets.forEach(a=>{
+downloads+=a.download_count
+})
+document.getElementById("downloads").innerText=downloads
+})
 
 </script>
 
