@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
 
@@ -8,15 +8,58 @@
 
 <link rel="icon" href="logo_QA.ico">
 
-<link rel="stylesheet" href="style.css">
-
 <style>
+
+body{
+font-family:Segoe UI,Arial;
+margin:0;
+background:#f4f6f9;
+color:#222;
+transition:0.3s;
+}
+
+.dark{
+background:#1f1f1f;
+color:#eee;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#ffffff;
+padding:12px 30px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.dark .navbar{
+background:#2a2a2a;
+}
+
+.menu a{
+margin-right:20px;
+text-decoration:none;
+font-weight:600;
+color:#333;
+}
+
+.dark .menu a{
+color:#eee;
+}
+
+.toggle{
+cursor:pointer;
+padding:6px 12px;
+border-radius:6px;
+background:#0078D4;
+color:white;
+}
 
 .hero{
 text-align:center;
 background:#111;
-padding:60px 20px;
 color:white;
+padding:60px 20px;
 }
 
 .hero img.banner{
@@ -30,67 +73,45 @@ margin-top:20px;
 
 .hero h1{
 font-size:42px;
-margin:10px 0;
-}
-
-.hero p{
-color:#ccc;
+margin-top:10px;
 }
 
 .download-btn{
-margin-top:25px;
-display:inline-block;
 background:#0078D4;
-padding:16px 35px;
 color:white;
-font-size:18px;
+padding:16px 32px;
 border-radius:8px;
 text-decoration:none;
+font-size:18px;
+display:inline-block;
+margin-top:20px;
 }
 
 .download-btn:hover{
 background:#005ea6;
 }
 
-.nav{
-text-align:center;
-background:#222;
-padding:10px;
-}
-
-.nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.nav a:hover{
-text-decoration:underline;
-}
-
 .container{
 max-width:1200px;
 margin:auto;
-padding:50px 30px;
+padding:50px 20px;
 }
 
 .features{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:30px;
+gap:25px;
 }
 
 .card{
 background:white;
 padding:25px;
 border-radius:10px;
-box-shadow:0 4px 14px rgba(0,0,0,0.1);
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-.card h3{
-margin-top:0;
+.dark .card{
+background:#2a2a2a;
 }
 
 .gallery{
@@ -104,12 +125,22 @@ margin-top:40px;
 width:100%;
 border-radius:8px;
 cursor:pointer;
-box-shadow:0 4px 10px rgba(0,0,0,0.15);
-transition:transform .2s;
+transition:0.2s;
 }
 
 .gallery img:hover{
 transform:scale(1.03);
+}
+
+.slideshow{
+text-align:center;
+margin-top:40px;
+}
+
+.slideshow img{
+width:800px;
+max-width:100%;
+border-radius:8px;
 }
 
 .lightbox{
@@ -119,7 +150,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.85);
+background:rgba(0,0,0,0.9);
 align-items:center;
 justify-content:center;
 }
@@ -129,11 +160,16 @@ max-width:90%;
 max-height:90%;
 }
 
+.counter{
+font-size:20px;
+margin-top:15px;
+}
+
 footer{
 text-align:center;
 margin-top:60px;
-padding:25px;
-color:#777;
+padding:20px;
+color:#888;
 }
 
 </style>
@@ -142,15 +178,22 @@ color:#777;
 
 <body>
 
-<div class="nav">
+<div class="navbar">
 
-<a href="index.html">Home</a>
+<div class="menu">
 
-<a href="docs.html">Documentation</a>
+<a href="index.html">Trang chủ</a>
+<a href="docs.html">Tài liệu</a>
+<a href="report-template.html">Mẫu báo cáo</a>
+<a href="https://github.com/PQC-hub/QA-Toolkit/releases">Tải xuống</a>
 
-<a href="report-template.html">Report Template</a>
+</div>
 
-<a href="https://github.com/PQC-hub/QA-Toolkit/releases">Download</a>
+<div class="toggle" onclick="toggleDark()">
+
+Dark Mode
+
+</div>
 
 </div>
 
@@ -164,56 +207,70 @@ color:#777;
 
 <h1>QA Toolkit</h1>
 
-<p>Windows System Optimization Tool</p>
+<p>Công cụ tối ưu hệ thống Windows</p>
 
 <a class="download-btn"
 href="https://github.com/PQC-hub/QA-Toolkit/releases">
 
-Download Latest Version
+Tải phiên bản mới nhất
 
 </a>
+
+<div class="counter">
+
+Lượt tải: <span id="downloadCount">0</span>
+
+</div>
 
 </div>
 
 <div class="container">
 
-<h2>Features</h2>
+<h2>Tính năng</h2>
 
 <div class="features">
 
 <div class="card">
 <h3>System Audit</h3>
-<p>Analyze CPU, RAM, disk usage and Windows system information.</p>
+<p>Phân tích CPU, RAM, ổ đĩa và thông tin hệ thống.</p>
 </div>
 
 <div class="card">
 <h3>Temp Cleanup</h3>
-<p>Remove temporary files, cache and leftover update files.</p>
+<p>Dọn dẹp file rác và cache Windows.</p>
 </div>
 
 <div class="card">
 <h3>Startup Manager</h3>
-<p>Manage and disable unnecessary startup programs.</p>
+<p>Quản lý chương trình khởi động.</p>
 </div>
 
 <div class="card">
 <h3>System Health Score</h3>
-<p>Calculate overall system health score.</p>
+<p>Chấm điểm sức khỏe hệ thống.</p>
 </div>
 
 <div class="card">
 <h3>HTML Report</h3>
-<p>Generate detailed system reports.</p>
+<p>Tạo báo cáo hệ thống dạng HTML.</p>
 </div>
 
 <div class="card">
 <h3>Backup & Restore</h3>
-<p>Backup important system data.</p>
+<p>Sao lưu và khôi phục dữ liệu.</p>
 </div>
 
 </div>
 
-<h2>Screenshots</h2>
+<div class="slideshow">
+
+<h2>Demo giao diện</h2>
+
+<img id="slide" src="manhinh1.png">
+
+</div>
+
+<h2>Ảnh màn hình</h2>
 
 <div class="gallery">
 
@@ -226,44 +283,60 @@ Download Latest Version
 
 </div>
 
-<h2>System Requirements</h2>
+<h2>Yêu cầu hệ thống</h2>
 
 <ul>
-
 <li>Windows 10 / Windows 11</li>
-
 <li>PowerShell 5.1+</li>
-
-<li>Administrator privileges</li>
-
+<li>Quyền Administrator</li>
 </ul>
-
-<h2>Run via PowerShell</h2>
-
-<pre>
-
-powershell -ExecutionPolicy Bypass -File QA-Toolkit.ps1
-
-</pre>
 
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeImg()">
+
 <img id="lightbox-img">
+
 </div>
 
 <footer>
 
-QA Toolkit – PowerShell Windows Optimization Tool
+QA Toolkit – Công cụ tối ưu Windows bằng PowerShell
 
 </footer>
 
 <script>
 
+function toggleDark(){
+
+document.body.classList.toggle("dark")
+
+}
+
+let images=[
+"manhinh1.png",
+"manhinh2.png",
+"manhinh3.png",
+"manhinh4.png",
+"manhinh5.png",
+"manhinh6.png"
+]
+
+let i=0
+
+setInterval(function(){
+
+i++
+
+if(i>=images.length)i=0
+
+document.getElementById("slide").src=images[i]
+
+},3000)
+
 function openImg(img){
 
 document.getElementById("lightbox").style.display="flex"
-
 document.getElementById("lightbox-img").src=img.src
 
 }
@@ -273,6 +346,10 @@ function closeImg(){
 document.getElementById("lightbox").style.display="none"
 
 }
+
+let downloads=1250
+
+document.getElementById("downloadCount").innerText=downloads
 
 </script>
 
