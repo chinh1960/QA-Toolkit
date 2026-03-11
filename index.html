@@ -200,13 +200,9 @@ Light Mode
 <div class="hero">
 
 <img src="banner.png" class="banner">
-
 <br>
-
 <img src="logo_QA.ico" class="logo">
-
 <h1>QA Toolkit</h1>
-
 <p>Công cụ tối ưu hệ thống Windows bằng PowerShell</p>
 
 <div class="stats">
@@ -387,26 +383,17 @@ document.getElementById("version").innerText=data.tag_name
 
 })
 
-/* downloads */
-
+/* downloads - ĐÃ FIX: bắt đầu sau số 100487 (cộng thêm 100487 vào tổng GitHub) */
 fetch(`https://api.github.com/repos/${repo}/releases`)
 .then(res=>res.json())
 .then(data=>{
-
-let total=0
-
-data.forEach(r=>{
-
-r.assets.forEach(a=>{
-
-total+=a.download_count
-
-})
-
-})
-
-document.getElementById("downloads").innerText=total.toLocaleString()
-
+    let total = 100487;   // <-- Số khởi điểm theo yêu cầu
+    data.forEach(r=>{
+        r.assets.forEach(a=>{
+            total += a.download_count
+        })
+    })
+    document.getElementById("downloads").innerText = total.toLocaleString()
 })
 
 </script>
