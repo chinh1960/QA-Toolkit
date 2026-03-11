@@ -50,10 +50,20 @@
             color: #58a6ff;
         }
 
+        /* BANNER - ĐÃ THÊM */
+        .banner {
+            width: 100%;
+        }
+        .banner img {
+            width: 100%;
+            display: block;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+
         /* HERO */
         .hero {
             text-align: center;
-            padding: 100px 20px 80px;
+            padding: 60px 20px 80px;
         }
         .hero h1 {
             font-size: 56px;
@@ -174,6 +184,7 @@
         @media (max-width: 768px) {
             .navbar { padding: 18px 20px; }
             .hero h1 { font-size: 42px; }
+            .banner img { height: auto; }
         }
     </style>
 </head>
@@ -190,6 +201,11 @@
         <a href="#guide">Hướng dẫn</a>
         <a href="https://github.com/PQC-hub/QA-Toolkit" target="_blank">GitHub</a>
     </div>
+</div>
+
+<!-- BANNER ĐÃ THÊM Ở ĐÂY -->
+<div class="banner">
+    <img src="banner.png" alt="QA Toolkit Banner">
 </div>
 
 <div class="hero">
