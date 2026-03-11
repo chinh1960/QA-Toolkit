@@ -2,11 +2,15 @@
 <img src="banner.png" width="900">
 </p>
 
+<p align="center">
+<img src="logo_QA.ico" width="120">
+</p>
+
 <h1 align="center">🛠 QA Toolkit</h1>
 
 <p align="center">
-Windows System Optimization Tool<br>
-<b>PowerShell + GUI</b>
+<b>Windows System Optimization Tool</b><br>
+PowerShell + GUI
 </p>
 
 <p align="center">
@@ -23,42 +27,24 @@ Windows System Optimization Tool<br>
 
 # 🚀 Overview
 
-**QA Toolkit** là công cụ **kiểm tra và tối ưu hệ thống Windows** được xây dựng bằng **PowerShell** với giao diện GUI thân thiện.
+**QA Toolkit** là công cụ tối ưu hóa và kiểm tra hệ thống **Windows** được xây dựng bằng **PowerShell** với giao diện GUI thân thiện.
 
-Phần mềm giúp người dùng:
+Công cụ giúp người dùng nhanh chóng:
 
-✔ Kiểm tra tình trạng hệ thống  
-✔ Dọn dẹp file rác Windows  
-✔ Quản lý chương trình khởi động  
-✔ Phân tích hiệu năng máy tính  
-✔ Xuất báo cáo hệ thống chuyên nghiệp  
+- Kiểm tra tình trạng hệ thống
+- Dọn dẹp file rác Windows
+- Quản lý chương trình khởi động
+- Phân tích hiệu năng máy tính
+- Xuất báo cáo hệ thống
 
-Mục tiêu của QA Toolkit là **giúp máy tính chạy nhanh – sạch – ổn định chỉ trong vài phút.**
-
----
-
-# 📦 Download
-
-<p align="center">
-
-### ⬇ Download Latest Version
-
-👉 https://github.com/PQC-hub/QA-Toolkit/releases/latest
-
-</p>
-
-| File | Description |
-|-----|-------------|
-| **QA-Toolkit.exe** | Bản chạy trực tiếp |
-| **QA-Toolkit.zip** | Source code |
-| **QA-Toolkit.ps1** | PowerShell script |
+QA Toolkit được thiết kế nhằm giúp **máy tính chạy nhanh hơn, sạch hơn và ổn định hơn chỉ trong vài phút**.
 
 ---
 
 # ✨ Features
 
-## 🔍 System Audit
-Phân tích toàn diện hệ thống:
+### 🔍 System Audit
+Kiểm tra toàn diện hệ thống:
 
 - CPU
 - RAM
@@ -68,45 +54,47 @@ Phân tích toàn diện hệ thống:
 
 ---
 
-## 🧹 Temp Cleanup
-Dọn dẹp các file không cần thiết:
+### 🧹 Temp Cleanup
+Dọn dẹp file rác và dữ liệu tạm:
 
-- Temp files
-- Windows cache
-- Browser cache
+- Windows temp
+- Cache hệ thống
+- File rác
 - Update leftovers
 
 ---
 
-## ⚡ Startup Manager
+### ⚡ Startup Manager
+Quản lý chương trình khởi động cùng Windows:
 
-Quản lý chương trình khởi động:
-
-- xem danh sách startup
-- disable ứng dụng nặng
-- tăng tốc khởi động Windows
+- Xem danh sách startup
+- Tắt ứng dụng không cần thiết
+- Tăng tốc khởi động Windows
 
 ---
 
-## 📊 System Health Score
+### 📊 System Health Score
+Đánh giá sức khỏe hệ thống theo thang điểm **0 – 100** dựa trên:
 
-Tính toán **điểm sức khỏe hệ thống (0–100)** dựa trên:
-
-- dung lượng disk
-- startup load
+- dung lượng ổ đĩa
+- số lượng startup
 - temp files
-- system status
+- trạng thái hệ thống
 
 ---
 
-## 📄 HTML Report
+### 📄 HTML Report
+Xuất báo cáo hệ thống dạng **HTML chuyên nghiệp** bao gồm:
 
-Xuất **báo cáo hệ thống dạng HTML**:
-
-- thông tin phần cứng
-- tình trạng hệ thống
-- startup analysis
+- thông tin hệ thống
+- tình trạng ổ đĩa
+- startup programs
 - health score
+
+---
+
+### 🔒 Safe Cleanup Mode
+Chế độ dọn dẹp an toàn giúp tránh xóa nhầm các file quan trọng của hệ thống.
 
 ---
 
@@ -118,18 +106,113 @@ Xuất **báo cáo hệ thống dạng HTML**:
 
 ---
 
+# 📦 Download
+
+<p align="center">
+
+[![Download](https://img.shields.io/badge/Download-QA_Toolkit-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/PQC-hub/QA-Toolkit/releases)
+
+</p>
+
+Download phiên bản mới nhất tại:
+
+https://github.com/PQC-hub/QA-Toolkit/releases
+
+| File | Description |
+|-----|-------------|
+| QA-Toolkit.exe | Bản chạy trực tiếp |
+| QA-Toolkit.zip | Source code |
+| QA-Toolkit.ps1 | Script PowerShell |
+
+---
+
 # ⚙️ System Requirements
 
 | Requirement | Minimum |
 |---|---|
-OS | Windows 10 / Windows 11 |
-PowerShell | 5.1+ |
-Permissions | Administrator |
+Operating System | Windows 10 / Windows 11 |
+PowerShell | 5.1 hoặc cao hơn |
+Permissions | Administrator (cho một số tính năng nâng cao) |
 
 ---
 
 # 🛠 Installation
 
-## Method 1 – Download Release
+## Method 1 — Download Release
 
-1️⃣ Download từ trang **Releases**
+1. Tải file từ trang **Releases**
+2. Giải nén nếu là file `.zip`
+3. Chạy chương trình
+
+---
+
+## Method 2 — Run via PowerShell
+
+Clone repository:
+
+```powershell
+git clone https://github.com/PQC-hub/QA-Toolkit.git
+```
+
+Run script:
+
+```powershell
+cd QA-Toolkit
+powershell -ExecutionPolicy Bypass -File QA-Toolkit.ps1
+```
+
+---
+
+# 📂 Project Structure
+
+```
+QA-Toolkit
+│
+├ banner.png
+├ logo_QA.ico
+├ manhinh.png
+│
+├ QA-Toolkit.ps1
+├ README.md
+└ docs
+```
+
+---
+
+# 🧠 Roadmap
+
+Planned features:
+
+- Registry cleanup
+- Driver checker
+- Disk benchmark
+- Windows service analyzer
+- Portable version
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+You can:
+
+- report bugs
+- suggest new features
+- submit pull requests
+
+---
+
+# ⭐ Support the Project
+
+Nếu bạn thấy dự án hữu ích:
+
+⭐ Star repository  
+🐛 Report bugs  
+💡 Suggest features  
+
+---
+
+# 📜 License
+
+MIT License
