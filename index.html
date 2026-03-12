@@ -67,12 +67,24 @@ background:#111;
 
 .hero img.banner{
 max-width:100%;
-height:auto;
 }
 
 .hero img.logo{
 width:120px;
 margin-top:20px;
+}
+
+.stats{
+margin-top:15px;
+font-size:16px;
+}
+
+.download-area{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:30px;
 }
 
 .download-btn{
@@ -82,33 +94,16 @@ padding:16px 32px;
 border-radius:8px;
 text-decoration:none;
 font-size:18px;
-display:inline-block;
-margin-top:25px;
 }
 
-.download-btn:hover{
-background:#005ea6;
-}
-
-.stats{
-margin-top:15px;
-font-size:16px;
+.download-btn.alt{
+background:#4CAF50;
 }
 
 .container{
 max-width:1100px;
 margin:auto;
 padding:40px 20px;
-}
-
-.slideshow{
-text-align:center;
-margin-top:30px;
-}
-
-.slideshow img{
-max-width:100%;
-border-radius:8px;
 }
 
 .gallery{
@@ -122,18 +117,6 @@ margin-top:30px;
 width:100%;
 border-radius:8px;
 cursor:pointer;
-}
-
-pre{
-background:#2a2a2a;
-padding:20px;
-border-radius:8px;
-overflow:auto;
-}
-
-.light pre{
-background:#ffffff;
-color:#000;
 }
 
 footer{
@@ -186,6 +169,8 @@ padding:40px 15px;
 
 }
 
+/* lightbox */
+
 .lightbox{
 display:none;
 position:fixed;
@@ -196,13 +181,11 @@ height:100%;
 background:rgba(0,0,0,0.9);
 align-items:center;
 justify-content:center;
-z-index:1000;
 }
 
 .lightbox img{
 max-width:90%;
 max-height:90%;
-border-radius:8px;
 }
 
 </style>
@@ -243,30 +226,26 @@ border-radius:8px;
 
 <div class="stats">
 
-⭐ Stars: <span id="stars">...</span> |
-⬇ Downloads: <span id="downloads">...</span> |
-📦 Version: <span id="version">...</span>
+⭐ Stars: <span>4</span> |
+⬇ Downloads: <span id="downloads">141142</span>
 
 </div>
 
-<a class="download-btn"
-href="https://github.com/PQC-hub/QA-Toolkit/releases/latest">
+<div class="download-area">
 
-⬇ Tải phiên bản mới nhất
+<a class="download-btn" href="QA_Toolkit.zip" onclick="countDownload()">
+⬇ Tải bản ZIP
+</a>
 
+<a class="download-btn alt" href="QA_Toolkit.rar" onclick="countDownload()">
+⬇ Tải bản RAR
 </a>
 
 </div>
 
-<div class="container">
-
-<h2>Demo</h2>
-
-<div class="slideshow">
-
-<img id="slide" src="manhinh1.png">
-
 </div>
+
+<div class="container">
 
 <h2>Ảnh giao diện</h2>
 
@@ -280,14 +259,6 @@ href="https://github.com/PQC-hub/QA-Toolkit/releases/latest">
 <img src="manhinh6.png" onclick="openImg(this)">
 
 </div>
-
-<h2>Changelog</h2>
-
-<pre id="changelog">
-
-Đang tải changelog...
-
-</pre>
 
 </div>
 
@@ -305,17 +276,17 @@ QA Toolkit – Windows Optimization Tool
 
 <script>
 
+/* menu mobile */
+
 function toggleMenu(){
 
 let menu=document.getElementById("menu")
 
-if(menu.style.display==="flex"){
-menu.style.display="none"
-}else{
-menu.style.display="flex"
-}
+menu.style.display=(menu.style.display==="flex")?"none":"flex"
 
 }
+
+/* theme */
 
 function toggleTheme(){
 
@@ -323,25 +294,7 @@ document.body.classList.toggle("light")
 
 }
 
-let images=[
-"manhinh1.png",
-"manhinh2.png",
-"manhinh3.png",
-"manhinh4.png",
-"manhinh5.png",
-"manhinh6.png"
-]
-
-let i=0
-
-setInterval(function(){
-
-i++
-if(i>=images.length)i=0
-
-document.getElementById("slide").src=images[i]
-
-},3000)
+/* gallery */
 
 function openImg(img){
 
@@ -356,31 +309,29 @@ document.getElementById("lightbox").style.display="none"
 
 }
 
-const repo="PQC-hub/QA-Toolkit"
+/* download counter */
 
-fetch(`https://api.github.com/repos/${repo}`)
-.then(res=>res.json())
-.then(data=>{
-document.getElementById("stars").innerText=data.stargazers_count
-})
+let base=141142
 
-fetch(`https://api.github.com/repos/${repo}/releases/latest`)
-.then(res=>res.json())
-.then(data=>{
+let stored=localStorage.getItem("qa_downloads")
 
-document.getElementById("version").innerText=data.tag_name
+if(stored){
+document.getElementById("downloads").innerText=stored
+}else{
+document.getElementById("downloads").innerText=base
+}
 
-let downloads=0
+function countDownload(){
 
-data.assets.forEach(a=>{
-downloads+=a.download_count
-})
+let n=parseInt(localStorage.getItem("qa_downloads")||base)
 
-document.getElementById("downloads").innerText=downloads
+n++
 
-document.getElementById("changelog").innerText=data.body
+localStorage.setItem("qa_downloads",n)
 
-})
+document.getElementById("downloads").innerText=n
+
+}
 
 </script>
 
