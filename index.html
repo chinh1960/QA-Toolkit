@@ -2,77 +2,388 @@
 <html lang="vi">
 
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>QA Toolkit</title>
+
 <link rel="icon" href="logo_QA.ico">
 
 <style>
-/* ... toàn bộ style cũ giữ nguyên ... */
-.warning-box {
-    background: #ff9800;
-    color: #111;
-    padding: 20px 25px;
-    border-radius: 10px;
-    margin: 30px auto;
-    max-width: 850px;
-    font-size: 17px;
-    box-shadow: 0 4px 12px rgba(255,152,0,0.3);
-    text-align: left;
+
+body{
+font-family:Segoe UI,Arial;
+margin:0;
+background:#1f1f1f;
+color:#eee;
+transition:0.3s;
 }
-.warning-box strong { color: #d32f2f; }
-.warning-box ul { margin: 12px 0; padding-left: 25px; }
-.warning-box li { margin: 8px 0; }
+
+.light{
+background:#f4f6f9;
+color:#222;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#2a2a2a;
+padding:15px 20px;
+flex-wrap:wrap;
+}
+
+.light .navbar{
+background:#ffffff;
+}
+
+.menu{
+display:flex;
+}
+
+.menu a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+.light .menu a{
+color:#222;
+}
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+.hero{
+text-align:center;
+padding:60px 20px;
+background:#111;
+}
+
+.hero img.banner{
+max-width:100%;
+height:auto;
+}
+
+.hero img.logo{
+width:120px;
+margin-top:20px;
+}
+
+.download-btn{
+background:#0078D4;
+color:white;
+padding:16px 32px;
+border-radius:8px;
+text-decoration:none;
+font-size:18px;
+display:inline-block;
+margin-top:25px;
+}
+
+.download-btn:hover{
+background:#005ea6;
+}
+
+.stats{
+margin-top:15px;
+font-size:16px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+.slideshow{
+text-align:center;
+margin-top:30px;
+}
+
+.slideshow img{
+max-width:100%;
+border-radius:8px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.gallery img{
+width:100%;
+border-radius:8px;
+cursor:pointer;
+}
+
+pre{
+background:#2a2a2a;
+padding:20px;
+border-radius:8px;
+overflow:auto;
+}
+
+.light pre{
+background:#ffffff;
+color:#000;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+color:#888;
+}
+
+/* tablet */
+
+@media(max-width:900px){
+
+.gallery{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* mobile */
+
+@media(max-width:600px){
+
+.menu{
+display:none;
+flex-direction:column;
+width:100%;
+}
+
+.menu a{
+margin:10px 0;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.download-btn{
+width:100%;
+text-align:center;
+}
+
+.hero{
+padding:40px 15px;
+}
+
+}
+
+.lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+align-items:center;
+justify-content:center;
+z-index:1000;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:8px;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<!-- navbar giữ nguyên -->
+<div class="navbar">
 
-<div class="hero">
-    <img src="banner.png" class="banner">
-    <br>
-    <img src="logo_QA.ico" class="logo">
-    <h1>QA Toolkit</h1>
-    <p>Công cụ tối ưu hệ thống Windows bằng PowerShell</p>
+<h2>QA Toolkit</h2>
 
-    <div class="stats">
-        ⭐ Stars: <span id="stars">...</span> |
-        ⬇ Downloads: <span id="downloads">...</span> |
-        📦 Version: <span id="version">...</span>
-    </div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    <a class="download-btn" href="https://github.com/PQC-hub/QA-Toolkit/releases">
-        Tải phiên bản mới nhất
-    </a>
+<div class="menu" id="menu">
 
-    <!-- === WARNING BOX ĐÃ CẬP NHẬT === -->
-    <div class="warning-box">
-        <strong>⚠️ LƯU Ý QUAN TRỌNG:</strong> File .exe có thể bị Windows Defender SmartScreen chặn (rất bình thường với file tải từ GitHub).<br><br>
-        
-        <strong>✅ Cách tốt nhất (khuyến nghị):</strong><br>
-        Tải <strong>QA-Toolkit.zip</strong> thay vì .exe<br>
-        <ul>
-            <li>Giải nén file zip</li>
-            <li>Chuột phải vào QA-Toolkit.exe → Properties → tick “Unblock” → OK</li>
-            <li>Double-click để chạy (hoặc chuột phải → Run as administrator)</li>
-        </ul>
-        
-        <strong>Hoặc tải trực tiếp .exe:</strong><br>
-        Nhấn “More info” → “Run anyway” khi Windows chặn.
-        
-        <small style="margin-top:15px;display:block;">
-            File .zip ít bị chặn hơn rất nhiều. 
-            Bạn chỉ cần làm 1 lần là xong.
-        </small>
-    </div>
+<a href="index.html">Trang chủ</a>
+<a href="docs.html">Tài liệu</a>
+<a href="report-template.html">Mẫu báo cáo</a>
+
 </div>
 
-<!-- phần còn lại (container, features, slideshow, gallery, lightbox, footer, script) giữ nguyên 100% -->
+<div onclick="toggleTheme()" style="cursor:pointer">🌙</div>
+
+</div>
+
+<div class="hero">
+
+<img src="banner.png" class="banner">
+
+<br>
+
+<img src="logo_QA.ico" class="logo">
+
+<h1>QA Toolkit</h1>
+
+<p>Công cụ tối ưu hệ thống Windows bằng PowerShell</p>
+
+<div class="stats">
+
+⭐ Stars: <span id="stars">...</span> |
+⬇ Downloads: <span id="downloads">...</span> |
+📦 Version: <span id="version">...</span>
+
+</div>
+
+<a class="download-btn"
+href="https://github.com/PQC-hub/QA-Toolkit/releases/latest">
+
+⬇ Tải phiên bản mới nhất
+
+</a>
+
+</div>
+
+<div class="container">
+
+<h2>Demo</h2>
+
+<div class="slideshow">
+
+<img id="slide" src="manhinh1.png">
+
+</div>
+
+<h2>Ảnh giao diện</h2>
+
+<div class="gallery">
+
+<img src="manhinh1.png" onclick="openImg(this)">
+<img src="manhinh2.png" onclick="openImg(this)">
+<img src="manhinh3.png" onclick="openImg(this)">
+<img src="manhinh4.png" onclick="openImg(this)">
+<img src="manhinh5.png" onclick="openImg(this)">
+<img src="manhinh6.png" onclick="openImg(this)">
+
+</div>
+
+<h2>Changelog</h2>
+
+<pre id="changelog">
+
+Đang tải changelog...
+
+</pre>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+
+<img id="lightbox-img">
+
+</div>
+
+<footer>
+
+QA Toolkit – Windows Optimization Tool
+
+</footer>
 
 <script>
-/* toàn bộ script cũ (stars 4.4, downloads 100487, version, slideshow...) */
+
+function toggleMenu(){
+
+let menu=document.getElementById("menu")
+
+if(menu.style.display==="flex"){
+menu.style.display="none"
+}else{
+menu.style.display="flex"
+}
+
+}
+
+function toggleTheme(){
+
+document.body.classList.toggle("light")
+
+}
+
+let images=[
+"manhinh1.png",
+"manhinh2.png",
+"manhinh3.png",
+"manhinh4.png",
+"manhinh5.png",
+"manhinh6.png"
+]
+
+let i=0
+
+setInterval(function(){
+
+i++
+if(i>=images.length)i=0
+
+document.getElementById("slide").src=images[i]
+
+},3000)
+
+function openImg(img){
+
+document.getElementById("lightbox").style.display="flex"
+document.getElementById("lightbox-img").src=img.src
+
+}
+
+function closeImg(){
+
+document.getElementById("lightbox").style.display="none"
+
+}
+
+const repo="PQC-hub/QA-Toolkit"
+
+fetch(`https://api.github.com/repos/${repo}`)
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("stars").innerText=data.stargazers_count
+})
+
+fetch(`https://api.github.com/repos/${repo}/releases/latest`)
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("version").innerText=data.tag_name
+
+let downloads=0
+
+data.assets.forEach(a=>{
+downloads+=a.download_count
+})
+
+document.getElementById("downloads").innerText=downloads
+
+document.getElementById("changelog").innerText=data.body
+
+})
+
 </script>
 
 </body>
+
 </html>
