@@ -106,6 +106,22 @@ margin:auto;
 padding:40px 20px;
 }
 
+.demo video{
+max-width:100%;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.slideshow{
+text-align:center;
+margin-top:30px;
+}
+
+.slideshow img{
+max-width:100%;
+border-radius:8px;
+}
+
 .gallery{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -203,8 +219,7 @@ max-height:90%;
 <div class="menu" id="menu">
 
 <a href="index.html">Trang chủ</a>
-<a href="docs.html">Tài liệu</a>
-<a href="report-template.html">Mẫu báo cáo</a>
+<a href="#">Tài liệu</a>
 
 </div>
 
@@ -226,7 +241,7 @@ max-height:90%;
 
 <div class="stats">
 
-⭐ Stars: <span>4</span> |
+⭐ Stars: 4 |
 ⬇ Downloads: <span id="downloads">141142</span>
 
 </div>
@@ -247,7 +262,23 @@ max-height:90%;
 
 <div class="container">
 
+<h2>Demo hoạt động</h2>
+
+<div class="demo">
+
+<video controls autoplay muted loop>
+<source src="demo.mp4" type="video/mp4">
+</video>
+
+</div>
+
 <h2>Ảnh giao diện</h2>
+
+<div class="slideshow">
+
+<img id="slide" src="manhinh1.png">
+
+</div>
 
 <div class="gallery">
 
@@ -293,6 +324,28 @@ function toggleTheme(){
 document.body.classList.toggle("light")
 
 }
+
+/* slideshow */
+
+let images=[
+"manhinh1.png",
+"manhinh2.png",
+"manhinh3.png",
+"manhinh4.png",
+"manhinh5.png",
+"manhinh6.png"
+]
+
+let i=0
+
+setInterval(function(){
+
+i++
+if(i>=images.length)i=0
+
+document.getElementById("slide").src=images[i]
+
+},3000)
 
 /* gallery */
 
