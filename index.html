@@ -13,17 +13,17 @@
         .menu a{text-decoration:none;color:white;font-weight:600;margin-left:20px;}
         .light .menu a{color:#222;}
         
-        .hero{text-align:center;padding:40px 20px;background:#111;border-bottom:3px solid #0078D4;}
+        .hero{text-align:center;padding:30px 20px;background:#111;border-bottom:3px solid #0078D4;}
         .hero img.logo{width:110px; margin-bottom: 10px;}
         .hero h1{margin:10px 0;font-size:36px;color:#0078D4;}
         .hero p{margin:5px 0 20px;color:#ccc;font-size:1.15rem;font-style:italic;}
 
-        /* SLIDE SHOW DỰA TRÊN 5 HÌNH ẢNH */
-        .slideshow-container { max-width: 800px; position: relative; margin: 20px auto; border-radius: 10px; overflow: hidden; border: 3px solid #333; }
+        /* SLIDESHOW CHỈ 5 HÌNH */
+        .slideshow-container { max-width: 800px; position: relative; margin: 20px auto; border-radius: 10px; overflow: hidden; border: 3px solid #333; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .mySlides { display: none; }
         .mySlides img { width: 100%; vertical-align: middle; border-radius: 8px; }
-        .fade { animation: fadeAnim 1.5s; }
-        @keyframes fadeAnim { from {opacity: .4} to {opacity: 1} }
+        .fade { animation: fadeAnim 1s; }
+        @keyframes fadeAnim { from {opacity: .6} to {opacity: 1} }
 
         .stats{font-size:15px;margin-bottom:25px;background:rgba(255,255,255,0.1);display:inline-block;padding:6px 18px;border-radius:20px;}
         .download-area{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
@@ -35,7 +35,7 @@
         .guide{background:#2a2a2a;padding:25px;border-radius:12px;border-left:5px solid #4CAF50;margin-bottom:40px;}
         .light .guide{background:#fff;box-shadow:0 4px 10px rgba(0,0,0,0.05);}
 
-        /* COMMENT SECTION */
+        /* COMMENT SECTION FIXED */
         .comment-section{background:#2a2a2a;padding:30px;border-radius:12px;margin-top:20px;}
         .light .comment-section{background:#fff; border: 1px solid #ddd;}
         .comment-form{display:flex;flex-direction:column;gap:15px;margin-bottom: 30px;}
@@ -78,7 +78,7 @@
             ⭐ GitHub Stars: 4 | ⬇ Tổng lượt tải: <span id="downloads">141142</span>
         </div>
         <div class="download-area">
-            <a id="download-rar" class="download-btn alt" href="https://github.com/PQC-hub/QA-Toolkit/releases/download/V10.4.87/QA_System_Toolkit_V10.4.87.rar">⬇ Tải bản RAR (Mật khẩu: 111)</a>
+            <a id="download-rar" class="download-btn alt" href="https://github.com/PQC-hub/QA-Toolkit/releases/download/V10.4.87/QA_System_Toolkit_V10.4.87.rar">⬇ Tải bản RAR (Pass: 111)</a>
             <a id="download-zip" class="download-btn" href="https://github.com/PQC-hub/QA-Toolkit/releases/download/V10.4.87/QA_System_Toolkit_V10.4.87.zip">⬇ Tải bản ZIP</a>
         </div>
     </div>
@@ -86,9 +86,9 @@
     <div class="container" id="guide">
         <h2>Hướng dẫn sử dụng</h2>
         <div class="guide">
-            <p><b>1. Giải nén:</b> Chuột phải chọn Extract, nhập mật khẩu <b>111</b>.</p>
-            <p><b>2. Quyền Admin:</b> Chạy file <b>QA_System_Toolkit_v10.4.87.EXE</b> bằng quyền Administrator.</p>
-            <p><b>3. AI Phân tích:</b> Mở Tab AI để sử dụng tính năng phân tích hệ thống thông minh.</p>
+            <p><b>1. Giải nén:</b> Mật khẩu là <b>111</b>.</p>
+            <p><b>2. Chạy ứng dụng:</b> Chạy <b>QA_System_Toolkit_v10.4.87.EXE</b> bằng quyền Administrator.</p>
+            <p><b>3. AI Phân tích:</b> Sử dụng Tab AI để được hỗ trợ phân tích hệ thống tự động.</p>
         </div>
     </div>
 
@@ -97,11 +97,10 @@
         <div class="comment-section">
             <div class="comment-form">
                 <input type="text" id="comment-name" placeholder="Tên của bạn...">
-                <textarea id="comment-text" rows="4" placeholder="Nội dung góp ý (Ví dụ: Lỗi Task 5, 8 hoặc nhận xét về AI...)"></textarea>
-                <button onclick="submitComment()">Gửi bình luận ngay</button>
+                <textarea id="comment-text" rows="4" placeholder="Nhận xét của bạn về bản Python hoặc tính năng AI..."></textarea>
+                <button id="btn-submit">Gửi bình luận ngay</button>
             </div>
-            <div id="comments-list">
-                </div>
+            <div id="comments-list"></div>
         </div>
     </div>
 
@@ -112,17 +111,16 @@
     <script>
         function toggleTheme(){document.body.classList.toggle("light");}
 
-        // JS CHO SLIDESHOW LUÂN PHIÊN
+        // JS SLIDESHOW: ĐÃ FIX TỐC ĐỘ 2 GIÂY (2000ms)
         let slideIndex = 0;
         showSlides();
         function showSlides() {
-            let i;
             let slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
             slideIndex++;
             if (slideIndex > slides.length) {slideIndex = 1}
             slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 3000); // Đổi hình sau mỗi 3 giây
+            setTimeout(showSlides, 2000); 
         }
 
         // ĐẾM LƯỢT TẢI
@@ -135,12 +133,12 @@
         document.getElementById("download-rar").onclick = countDownload;
         document.getElementById("download-zip").onclick = countDownload;
 
-        // HỆ THỐNG BÌNH LUẬN (FIXED)
+        // HỆ THỐNG COMMENT FIXED
         function loadComments(){
             let comments = JSON.parse(localStorage.getItem("qa_comments") || "[]");
             let list = document.getElementById("comments-list");
             if(comments.length === 0){
-                list.innerHTML = '<p style="text-align:center; color:#888;">Chưa có bình luận nào. Hãy là người đầu tiên!</p>';
+                list.innerHTML = '<p style="text-align:center; color:#888;">Chưa có bình luận nào.</p>';
                 return;
             }
             list.innerHTML = "";
@@ -152,20 +150,19 @@
             });
         }
 
-        function submitComment(){
+        document.getElementById("btn-submit").onclick = function(){
             let name = document.getElementById("comment-name").value.trim();
             let text = document.getElementById("comment-text").value.trim();
-            if(!name || !text){ alert("Vui lòng nhập đủ tên và nội dung!"); return; }
+            if(!name || !text){ alert("Vui lòng nhập đủ thông tin!"); return; }
             
             let comments = JSON.parse(localStorage.getItem("qa_comments") || "[]");
-            let date = new Date().toLocaleString('vi-VN');
-            comments.unshift({name, text, date});
+            comments.unshift({name, text, date: new Date().toLocaleString('vi-VN')});
             localStorage.setItem("qa_comments", JSON.stringify(comments));
             
             document.getElementById("comment-name").value = "";
             document.getElementById("comment-text").value = "";
             loadComments();
-        }
+        };
 
         window.onload = function(){
             document.getElementById("downloads").innerText = localStorage.getItem("qa_downloads") || 141142;
