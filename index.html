@@ -7,40 +7,33 @@
     <title>QA Toolkit - Python System Optimizer</title>
     <link rel="icon" href="logo_QA.ico">
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #1f1f1f; color: #eee; line-height: 1.6; }
-        .light { background: #f4f6f9; color: #222; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; background: #2a2a2a; padding: 12px 20px; position: sticky; top: 0; z-index: 1000; }
-        .light .navbar { background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .menu { display: flex; gap: 20px; }
-        .menu a { text-decoration: none; color: white; font-weight: 600; }
-        .light .menu a { color: #222; }
-        .hero { text-align: center; padding: 40px 20px; background: #111; border-bottom: 3px solid #0078D4; }
-        .hero img.banner { max-width: 100%; border-radius: 10px; margin-bottom: 20px; }
-        .hero img.logo { width: 120px; margin-top: 10px; }
-        .hero h1 { margin: 15px 0 5px; font-size: 38px; color: #0078D4; }
-        .hero p { margin: 5px 0 15px; color: #ccc; font-size: 1.2rem; }
-        .stats { font-size: 16px; margin-bottom: 25px; background: rgba(255,255,255,0.1); display: inline-block; padding: 5px 15px; border-radius: 20px; }
-        .download-area { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .download-btn { background: #0078D4; color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: bold; transition: 0.3s; }
-        .download-btn.alt { background: #4CAF50; }
-        .download-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-        .container { max-width: 1050px; margin: auto; padding: 40px 20px; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 25px; }
-        .gallery img { width: 100%; border-radius: 8px; cursor: pointer; transition: 0.3s; border: 2px solid transparent; }
-        .gallery img:hover { border-color: #0078D4; }
-        .guide { background: #2a2a2a; padding: 25px; border-radius: 12px; border-left: 5px solid #4CAF50; }
-        .light .guide { background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .comment-section { background: #2a2a2a; padding: 30px; border-radius: 12px; margin-top: 30px; }
-        .light .comment-section { background: #fff; }
-        .comment-form { display: flex; flex-direction: column; gap: 15px; }
-        .comment-form input, .comment-form textarea { padding: 12px; border: 1px solid #444; background: #1f1f1f; color: #eee; border-radius: 6px; }
-        .light .comment-form input, .light .comment-form textarea { background: #fff; color: #222; border-color: #ccc; }
-        .comment-form button { background: #0078D4; color: white; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
-        .comment { background: #333; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #0078D4; }
-        .light .comment { background: #f9f9f9; }
-        footer { text-align: center; padding: 30px; color: #888; font-size: 14px; }
-        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; z-index: 2000; }
-        .lightbox img { max-width: 90%; max-height: 90%; }
+        /* Giữ nguyên phần CSS của bạn */
+        body{font-family:'Segoe UI',Arial;margin:0;background:#1f1f1f;color:#eee;line-height:1.5;}
+        .light{background:#f4f6f9;color:#222;}
+        .navbar{display:flex;justify-content:space-between;align-items:center;background:#2a2a2a;padding:12px 20px;}
+        .light .navbar{background:#ffffff;}
+        .menu{display:flex;gap:20px;}
+        .menu a{text-decoration:none;color:white;font-weight:600;}
+        .light .menu a{color:#222;}
+        .hero{text-align:center;padding:30px 20px;background:#111;border-bottom:3px solid #0078D4;}
+        .hero img.banner{max-width:100%;border-radius:10px;}
+        .hero img.logo{width:100px;margin-top:10px;}
+        .hero h1{margin:10px 0 5px;font-size:36px;color:#0078D4;}
+        .hero p{margin:5px 0 15px;color:#ccc;font-size:1.1rem;}
+        .stats{font-size:15px;margin-bottom:20px;background:rgba(255,255,255,0.1);display:inline-block;padding:5px 15px;border-radius:20px;}
+        .download-area{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+        .download-btn{background:#0078D4;color:white;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:17px;font-weight:bold;transition:0.3s;}
+        .download-btn.alt{background:#4CAF50;}
+        .download-btn:hover{opacity:0.9;transform:translateY(-2px);}
+        .container{max-width:1050px;margin:auto;padding:40px 20px;}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:20px;}
+        .gallery img{width:100%;border-radius:8px;cursor:pointer;transition:0.3s;}
+        .gallery img:hover{transform:scale(1.02);}
+        .guide{background:#2a2a2a;padding:25px;border-radius:12px;border-left:5px solid #4CAF50;}
+        .light .guide{background:#fff;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+        footer{text-align:center;padding:30px;color:#888;font-size:14px;}
+        .lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);align-items:center;justify-content:center;z-index:2000;}
+        .lightbox img{max-width:90%;max-height:90%;}
     </style>
 </head>
 
@@ -50,57 +43,46 @@
         <h3>QA Toolkit</h3>
         <div class="menu">
             <a href="#">Trang chủ</a>
-            <a href="#guide">Hướng dẫn</a>
-            <a href="#comments">Góp ý</a>
+            <a href="#guide">Tài liệu</a>
         </div>
         <div onclick="toggleTheme()" style="cursor:pointer; font-size: 20px;">🌓</div>
     </div>
 
     <div class="hero">
-        <img src="banner.png" class="banner" alt="QA Toolkit Banner"><br>
-        <img src="logo_QA.ico" class="logo" alt="Logo">
+        <img src="banner.png" class="banner">
+        <br>
+        <img src="logo_QA.ico" class="logo">
         <h1>QA Toolkit v10.4.87</h1>
-        <p>Công cụ tối ưu hệ thống Windows hiện đại viết bằng Python</p>
+        <p>Công cụ tối ưu hệ thống Windows phát triển bằng Python</p>
         <div class="stats">
             ⭐ GitHub Stars: 4 | ⬇ Tổng lượt tải: <span id="downloads">141142</span>
         </div>
         <div class="download-area">
-            <a id="download-rar" class="download-btn alt" href="https://github.com/PQC-hub/QA-Toolkit/releases/download/V1.0/QA_System_Toolkit_V10.4.87.rar">⬇ Tải bản RAR (Pass: 123)</a>
-            <a id="download-zip" class="download-btn" href="https://github.com/PQC-hub/QA-Toolkit/releases/download/V1.0/QA_System_Toolkit_V10.4.87.zip">⬇ Tải bản ZIP</a>
+            <a id="download-rar" class="download-btn alt" href="https://github.com/PQC-hub/QA-Toolkit/releases/download/V10.4.87/QA_System_Toolkit_V10.4.87.rar">⬇ Tải bản RAR (Khuyên dùng)</a>
+            <a id="download-zip" class="download-btn" href="https://github.com/PQC-hub/QA-Toolkit/releases/download/V10.4.87/QA_System_Toolkit_V10.4.87.zip">⬇ Tải bản ZIP</a>
         </div>
     </div>
 
     <div class="container">
-        <h2>Giao diện ứng dụng (Python GUI)</h2>
+        <h2>Ảnh giao diện ứng dụng</h2>
         <div class="gallery">
-            <img src="manhinh1.png" onclick="openImg(this)" alt="Screenshot 1">
-            <img src="manhinh2.png" onclick="openImg(this)" alt="Screenshot 2">
-            <img src="manhinh3.png" onclick="openImg(this)" alt="Screenshot 3">
-            <img src="manhinh4.png" onclick="openImg(this)" alt="Screenshot 4">
-            <img src="manhinh5.png" onclick="openImg(this)" alt="Screenshot 5">
-            <img src="manhinh6.png" onclick="openImg(this)" alt="Screenshot 6">
+            <img src="manhinh1.png" onclick="openImg(this)">
+            <img src="manhinh2.png" onclick="openImg(this)">
+            <img src="manhinh3.png" onclick="openImg(this)">
+            <img src="manhinh4.png" onclick="openImg(this)">
+            <img src="manhinh5.png" onclick="openImg(this)">
+            <img src="manhinh6.png" onclick="openImg(this)">
         </div>
     </div>
 
     <div class="container" id="guide">
-        <h2>Hướng dẫn sử dụng nhanh</h2>
+        <h2>Hướng dẫn sử dụng</h2>
         <div class="guide">
-            <p><b>1. Tải về:</b> Chọn bản RAR hoặc ZIP ở trên.</p>
-            <p><b>2. Giải nén:</b> Sử dụng WinRAR hoặc 7-Zip, nhập mật khẩu <b>123</b> nếu được yêu cầu.</p>
-            <p><b>3. Khởi chạy:</b> Chuột phải vào file <b>QA_Toolkit.exe</b> và chọn <i>Run as Administrator</i>.</p>
-            <p><b>* Lưu ý:</b> Nếu bị Windows chặn (SmartScreen), nhấn <i>More info</i> -> <i>Run anyway</i>.</p>
-        </div>
-    </div>
-
-    <div class="container" id="comments">
-        <h2>Phản hồi người dùng</h2>
-        <div class="comment-section">
-            <div class="comment-form">
-                <input type="text" id="comment-name" placeholder="Tên của bạn *">
-                <textarea id="comment-text" rows="4" placeholder="Ý kiến đóng góp hoặc báo lỗi Task 5, 8... *"></textarea>
-                <button id="submit-comment">Gửi bình luận</button>
-            </div>
-            <div id="comments-list" style="margin-top: 20px;"></div>
+            <p><b>Bước 1:</b> Tải file RAR hoặc ZIP từ các nút phía trên.</p>
+            <p><b>Bước 2:</b> Giải nén thư mục. Mật khẩu giải nén là: <b>111</b>.</p>
+            <p><b>Bước 3:</b> Tìm và chạy file <b>QA_System_Toolkit_v10.4.87.EXE</b> với quyền Administrator.</p>
+            <hr style="border:0; border-top:1px solid #444; margin:20px 0;">
+            <p><b>Lưu ý về bảo mật:</b> Vì ứng dụng được đóng gói từ Python, Windows Defender có thể báo nhầm. Hãy chọn "Allow on device" để khởi chạy.</p>
         </div>
     </div>
 
@@ -109,23 +91,16 @@
     </div>
 
     <footer>
-        © 2026 QA Toolkit – Phát triển bởi PQC-hub. <br>
-        Tối ưu hệ thống - An toàn - Hiệu quả.
+        QA Toolkit – Phát triển bởi PQC-hub – © 2026
     </footer>
 
     <script>
-        // Chuyển đổi giao diện Sáng/Tối
-        function toggleTheme() { document.body.classList.toggle("light"); }
-
-        // Mở ảnh phóng to
-        function openImg(img) { 
-            document.getElementById("lightbox").style.display = "flex"; 
-            document.getElementById("lightbox-img").src = img.src; 
-        }
-        function closeImg() { document.getElementById("lightbox").style.display = "none"; }
+        function toggleTheme(){document.body.classList.toggle("light");}
+        function openImg(img){document.getElementById("lightbox").style.display="flex";document.getElementById("lightbox-img").src=img.src;}
+        function closeImg(){document.getElementById("lightbox").style.display="none";}
 
         // Hệ thống đếm lượt tải
-        function countDownload() {
+        function countDownload(){
             let base = 141142;
             let n = parseInt(localStorage.getItem("qa_downloads") || base);
             n++;
@@ -133,44 +108,11 @@
             document.getElementById("downloads").innerText = n;
         }
 
-        // Quản lý bình luận
-        function loadComments() {
-            let comments = JSON.parse(localStorage.getItem("qa_comments") || "[]");
-            let list = document.getElementById("comments-list");
-            list.innerHTML = comments.length === 0 ? '<p style="text-align:center; color:#888;">Chưa có bình luận nào.</p>' : "";
-            comments.forEach(c => {
-                let div = document.createElement("div");
-                div.className = "comment";
-                div.innerHTML = `<div style="display:flex; justify-content:space-between; font-size:12px; color:#aaa;">
-                                    <b>${c.name}</b> <span>${c.date}</span>
-                                 </div>
-                                 <div style="margin-top:10px;">${c.text}</div>`;
-                list.appendChild(div);
-            });
-        }
-
-        document.getElementById("submit-comment").addEventListener("click", function() {
-            let name = document.getElementById("comment-name").value.trim();
-            let text = document.getElementById("comment-text").value.trim();
-            if(!name || !text) { alert("Vui lòng điền đủ thông tin!"); return; }
-            
-            let comments = JSON.parse(localStorage.getItem("qa_comments") || "[]");
-            let dateStr = new Date().toLocaleString('vi-VN');
-            comments.unshift({name, text, date: dateStr});
-            localStorage.setItem("qa_comments", JSON.stringify(comments));
-            
-            document.getElementById("comment-name").value = "";
-            document.getElementById("comment-text").value = "";
-            loadComments();
-            alert("Cảm ơn bạn đã góp ý!");
-        });
-
-        window.onload = function() {
+        window.onload = function(){
             let stored = localStorage.getItem("qa_downloads");
             document.getElementById("downloads").innerText = stored ? stored : 141142;
             document.getElementById("download-rar").addEventListener("click", countDownload);
             document.getElementById("download-zip").addEventListener("click", countDownload);
-            loadComments();
         };
     </script>
 </body>
