@@ -17,12 +17,12 @@ Bạn có thể tải phiên bản mới nhất tại mục Releases.
 
 Bản nén: QA_System_Toolkit_V10.4.87.rar
 
-Mật khẩu giải nén: 123
+Mật khẩu giải nén: 111
 
 📖 Hướng dẫn sử dụng
 Tải tệp .rar về máy tính.
 
-Giải nén tệp với mật khẩu là 123.
+Giải nén tệp với mật khẩu là 111.
 
 Nhấp chuột phải vào file QA_Toolkit.exe và chọn Run as Administrator.
 
@@ -30,7 +30,7 @@ Lưu ý: Nếu bị Windows Defender chặn, chọn "More info" -> "Run anyway" 
 
 🛠️ Công nghệ sử dụng
 Ngôn ngữ: Python 3.x
-
+TÍCH HỢP AI PHÂN TÍCH
 Thư viện GUI: CustomTkinter
 
 Đóng gói: PyInstaller / Nuitka
