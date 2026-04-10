@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA Toolkit</title>
+<link rel="icon" href="logo_QA.ico">
+<style>
+body{font-family:Segoe UI,Arial;margin:0;background:#1f1f1f;color:#eee;line-height:1.5;}
+.light{background:#f4f6f9;color:#222;}
+.navbar{display:flex;justify-content:space-between;align-items:center;background:#2a2a2a;padding:12px 20px;}
+.light .navbar{background:#ffffff;}
+.menu{display:flex;gap:20px;}
+.menu a{text-decoration:none;color:white;font-weight:600;}
+.light .menu a{color:#222;}
+.menu-toggle{display:none;font-size:26px;cursor:pointer;}
+.hero{text-align:center;padding:20px 20px 25px;background:#111;}
+.hero img.banner{max-width:100%;}
+.hero img.logo{width:100px;margin-top:8px;}
+.hero h1{margin:8px 0 4px;font-size:32px;}
+.hero p{margin:4px 0 10px;color:#ccc;}
+.stats{font-size:15px;margin-top:6px;}
+.download-area{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.download-btn{background:#0078D4;color:white;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:17px;}
+.download-btn.alt{background:#4CAF50;}
+.container{max-width:1050px;margin:auto;padding:30px 20px;}
+.slideshow{text-align:center;margin-top:15px;}
+.slideshow img{max-width:100%;border-radius:8px;}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px;}
+.gallery img{width:100%;border-radius:8px;cursor:pointer;}
+.guide{background:#2a2a2a;padding:20px;border-radius:8px;margin-top:30px;}
+.light .guide{background:#ffffff;}
+.comment-section{background:#2a2a2a;padding:25px;border-radius:8px;margin-top:30px;}
+.light .comment-section{background:#ffffff;color:#222;}
+.comment-form{display:flex;flex-direction:column;gap:12px;}
+.comment-form input[type="text"], .comment-form textarea{padding:12px;border:1px solid #555;background:#1f1f1f;color:#eee;border-radius:6px;font-family:inherit;resize:vertical;}
+.light .comment-form input[type="text"], .light .comment-form textarea{background:#fff;color:#222;border-color:#ccc;}
+.comment-form button{background:#0078D4;color:white;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;font-size:16px;font-weight:600;}
+.comment-form button:hover{background:#0063b1;}
+#comments-list{margin-top:25px;}
+.comment{background:#333;padding:15px;border-radius:8px;margin-bottom:15px;border-left:4px solid #0078D4;}
+.light .comment{background:#f4f4f4;border-left-color:#0078D4;}
+.comment-header{display:flex;justify-content:space-between;font-size:13px;color:#bbb;}
+.light .comment-header{color:#666;}
+.comment-name{font-weight:600;color:#fff;}
+.light .comment-name{color:#222;}
+.comment-date{font-style:italic;}
+.comment-text{margin-top:10px;line-height:1.4;}
+footer{text-align:center;padding:18px;color:#888;}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.menu{display:none;flex-direction:column;}.menu-toggle{display:block;}.gallery{grid-template-columns:1fr;}.download-btn{width:100%;text-align:center;}}
+.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);align-items:center;justify-content:center;}
+.lightbox img{max-width:90%;max-height:90%;}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+<h3>QA Toolkit</h3>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<div class="menu" id="menu">
+<a href="index.html">Trang chủ</a>
+<a href="#guide">Tài liệu</a>
+</div>
+<div onclick="toggleTheme()" style="cursor:pointer">🌙</div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+<img src="banner.png" class="banner"><br>
+<img src="logo_QA.ico" class="logo">
+<h1>QA Toolkit</h1>
+<p>Công cụ tối ưu hệ thống Windows bằng PowerShell</p>
+<div class="stats">
+⭐ Stars: 4 | ⬇ Downloads: <span id="downloads">141142</span>
+</div>
+<div class="download-area">
+<a id="download-zip" class="download-btn" href="QA_System_Toolkit_V10.4.87.exe">⬇ Tải bản EXE</a>
+<a id="download-rar" class="download-btn alt" href="QA_System_Toolkit_V10.4.87.RAR">⬇ Tải bản RAR</a>
+</div>
+</div>
+
+<!-- Screenshots -->
+<div class="container">
+<h2>Ảnh giao diện</h2>
+<div class="slideshow"><img id="slide" src="manhinh1.png"></div>
+<div class="gallery">
+<img src="manhinh1.png" onclick="openImg(this)">
+<img src="manhinh2.png" onclick="openImg(this)">
+<img src="manhinh3.png" onclick="openImg(this)">
+<img src="manhinh4.png" onclick="openImg(this)">
+<img src="manhinh5.png" onclick="openImg(this)">
+<img src="manhinh6.png" onclick="openImg(this)">
+</div>
+</div>
+
+<!-- Guide -->
+<div class="container" id="guide">
+<h2>Hướng dẫn sử dụng</h2>
+<div class="guide">
+<b>Bước 1:</b> Tải file EXE hoặc RAR về máy.<br><br>
+<b>Bước 2:</b> Giải nén file, nếu y/c pw thì nhập 111.<br><br>
+<b>Bước 3:</b> Chạy file <b>QA_System_Toolkit_V10.4.87.EXE</b>.<br><br>
+<b>Nếu Windows chặn:</b><br>Chuột phải file → Properties → chọn <b>Unblock</b> → Run.<br><br>
+<b>Lưu ý:</b> Tool không cần cài đặt, có thể chạy trực tiếp.
+</div>
+</div>
+
+<!-- Bình luận -->
+<div class="container">
+<h2>Bình luận từ người dùng</h2>
+<div class="comment-section">
+<div class="comment-form">
+<input type="text" id="comment-name" placeholder="Tên của bạn *">
+<textarea id="comment-text" rows="4" placeholder="Nhập bình luận của bạn... *"></textarea>
+<button id="submit-comment">Gửi bình luận</button>
+</div>
+<div style="margin-top:15px;text-align:center;">
+<button onclick="loadComments()" style="background:#555;color:white;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;">🔄 Làm mới bình luận</button>
+</div>
+<div id="comments-list"></div>
+</div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+<img id="lightbox-img">
+</div>
+
+<footer>QA Toolkit – Windows Optimization Tool</footer>
+
+<script>
+/* menu & theme */
+function toggleMenu(){let menu=document.getElementById("menu");menu.style.display=(menu.style.display==="flex")?"none":"flex";}
+function toggleTheme(){document.body.classList.toggle("light");}
+
+/* slideshow */
+let images=["manhinh1.png","manhinh2.png","manhinh3.png","manhinh4.png","manhinh5.png","manhinh6.png"];
+let i=0;
+setInterval(()=>{i++;if(i>=images.length)i=0;document.getElementById("slide").src=images[i];},3000);
+
+/* gallery & lightbox */
+function openImg(img){document.getElementById("lightbox").style.display="flex";document.getElementById("lightbox-img").src=img.src;}
+function closeImg(){document.getElementById("lightbox").style.display="none";}
+
+/* ==================== HỆ THỐNG DOWNLOAD & COMMENT (ĐÃ FIX) ==================== */
+function countDownload(){
+    let base=141142;
+    let n=parseInt(localStorage.getItem("qa_downloads")||base);
+    n++;
+    localStorage.setItem("qa_downloads",n);
+    document.getElementById("downloads").innerText=n;
+    console.log("✅ Download counter tăng lên: " + n);
+}
+
+function loadComments(){
+    let comments=JSON.parse(localStorage.getItem("qa_comments")||"[]");
+    let list=document.getElementById("comments-list");
+    list.innerHTML="";
+    if(comments.length===0){
+        list.innerHTML='<p style="color:#888;text-align:center;padding:20px;">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ!</p>';
+        return;
+    }
+    comments.forEach(c=>{
+        let div=document.createElement("div");
+        div.className="comment";
+        div.innerHTML=`<div class="comment-header"><span class="comment-name">${c.name}</span><span class="comment-date">${c.date}</span></div><div class="comment-text">${c.text.replace(/\n/g,'<br>')}</div>`;
+        list.appendChild(div);
+    });
+}
+
+function submitComment(){
+    let name=document.getElementById("comment-name").value.trim();
+    let text=document.getElementById("comment-text").value.trim();
+    if(!name||!text){alert("❌ Vui lòng nhập đầy đủ Tên và Bình luận!");return;}
+    
+    let comments=JSON.parse(localStorage.getItem("qa_comments")||"[]");
+    let now=new Date();
+    let dateStr=now.toLocaleDateString('vi-VN')+" "+now.toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});
+    comments.unshift({name,text,date:dateStr});
+    localStorage.setItem("qa_comments",JSON.stringify(comments));
+    
+    document.getElementById("comment-name").value="";
+    document.getElementById("comment-text").value="";
+    
+    loadComments();
+    alert("✅ Bình luận đã được gửi thành công!\nBạn sẽ thấy nó ngay dưới đây.");
+    document.getElementById("comments-list").scrollIntoView({behavior:"smooth"});
+}
+
+/* ==================== KHỞI ĐỘNG KHI TRANG LOAD (FIX CHÍNH) ==================== */
+window.addEventListener("load", function(){
+    // Download counter
+    let base=141142;
+    let stored=localStorage.getItem("qa_downloads");
+    document.getElementById("downloads").innerText=stored?stored:base;
+    
+    // Gắn sự kiện click cho 2 nút tải
+    document.getElementById("download-zip").addEventListener("click", countDownload);
+    document.getElementById("download-rar").addEventListener("click", countDownload);
+    
+    // Gắn sự kiện cho nút gửi comment
+    document.getElementById("submit-comment").addEventListener("click", submitComment);
+    
+    // Load bình luận
+    loadComments();
+});
+</script>
+
+</body>
+</html>
